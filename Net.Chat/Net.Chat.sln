@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Net.Chat.Infrastructure", "Net.Chat.Infrastructure\Net.Chat.Infrastructure.csproj", "{F78868E4-7712-4298-A186-B140BD6B673F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F78868E4-7712-4298-A186-B140BD6B673F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F78868E4-7712-4298-A186-B140BD6B673F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F78868E4-7712-4298-A186-B140BD6B673F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F78868E4-7712-4298-A186-B140BD6B673F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {35A5A854-F5A5-4018-A214-EB6ABD127E2C}
+	EndGlobalSection
+EndGlobal
