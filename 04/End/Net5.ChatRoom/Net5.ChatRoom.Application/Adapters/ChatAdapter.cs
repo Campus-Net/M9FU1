@@ -12,18 +12,24 @@ namespace Net5.ChatRoom.Application.Adapters
     {
         public static UserDto UserToUserDto(User user)
         {
-            UserDto userDto = new UserDto
+            if (user != null)
             {
-                UserId = user.UserId,
-                Address = user.Address,
-                DateOfBirth = user.DateOfBirth,
-                Email=user.Email,
-                FirstName = user.FirstName,
-                LastName = user.LastName,                
-                Sex=user.Sex
-            };
-
-            return userDto;
+                UserDto userDto = new UserDto
+                {
+                    UserId = user.UserId,
+                    Address = user.Address,
+                    DateOfBirth = user.DateOfBirth,
+                    Email = user.Email,
+                    FirstName = user.FirstName,
+                    LastName = user.LastName,
+                    Sex = user.Sex
+                };
+                return userDto;
+            }
+            else
+            {
+                return null;
+            }
         }
         public static User UserDtoToUser(UserDto userDto)
         {

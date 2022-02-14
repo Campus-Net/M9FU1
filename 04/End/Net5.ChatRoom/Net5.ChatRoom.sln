@@ -11,6 +11,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Net5.ChatRoom.Application",
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Net5.ChatRoom.ConsoleClient", "Net5.ChatRoom.ConsoleClient\Net5.ChatRoom.ConsoleClient.csproj", "{292A6C51-9809-4B4D-BB00-A67150E404FC}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Net5.ChatRoom.API", "Net5.ChatRoom.API\Net5.ChatRoom.API.csproj", "{BE919CCD-9055-4911-9AE8-88A45FD5319D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -35,6 +37,10 @@ Global
 		{292A6C51-9809-4B4D-BB00-A67150E404FC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{292A6C51-9809-4B4D-BB00-A67150E404FC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{292A6C51-9809-4B4D-BB00-A67150E404FC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BE919CCD-9055-4911-9AE8-88A45FD5319D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BE919CCD-9055-4911-9AE8-88A45FD5319D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BE919CCD-9055-4911-9AE8-88A45FD5319D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BE919CCD-9055-4911-9AE8-88A45FD5319D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
