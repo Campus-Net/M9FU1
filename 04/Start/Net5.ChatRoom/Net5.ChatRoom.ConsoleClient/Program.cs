@@ -24,7 +24,6 @@ namespace Net5.ChatRoom.ConsoleClient
                     app.AddJsonFile("appsettings.json");
                 })
                 .ConfigureServices((_, services) => {
-                    
                     services.AddScoped<IUserRepository, UserRepository>();
                     services.AddScoped<IRoomRepository, RoomRepository>();
                     services.AddScoped<IRoomUserRepository, RoomUserRepository>();
@@ -32,7 +31,7 @@ namespace Net5.ChatRoom.ConsoleClient
 
                     services.AddScoped<IChatApplicationService, ChatApplicationService>();
 
-                    string conn = "Data Source=.;Initial Catalog=Net5.ChatRoom.DB;User ID=sa;Password=Password1234";
+                    string conn = "";
 
                     services.AddDbContext<ChatRoomContext>(opt => opt.UseSqlServer(conn));
                     services.AddTransient<ConsoleApp>();

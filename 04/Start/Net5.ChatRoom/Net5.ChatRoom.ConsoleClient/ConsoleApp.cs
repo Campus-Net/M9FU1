@@ -17,7 +17,7 @@ namespace Net5.ChatRoom.ConsoleClient
         }
         public void Run()
         {
-            UserDto user = _chatApplicationService.GetUserByEmail("jperez@todo.local");
+            UserDto user = _chatApplicationService.GetUserByEmail("scorpius86@gmail.com");
             Console.WriteLine(user.FirstName);
         }
     }

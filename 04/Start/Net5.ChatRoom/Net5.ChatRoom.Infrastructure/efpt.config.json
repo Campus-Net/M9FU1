@@ -30,7 +30,7 @@
          "ObjectType": 0
       }
    ],
-   "UiHint": "e56b9752e844.Net5.ChatRoom.DB",
+   "UiHint": "00ea6c046e26.Net5.ChatRoom.DB",
    "UseBoolPropertiesWithoutDefaultSql": false,
    "UseDatabaseNames": false,
    "UseDbContextSplitting": true,

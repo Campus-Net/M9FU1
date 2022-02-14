@@ -14,7 +14,7 @@ namespace Net5.ChatRoom.Infrastructure.Data.Context.Configurations
         {
             entity.ToTable("Room");
 
-            entity.HasIndex(e => e.RoomName, "UQ__Room__6B500B5557DE7308")
+            entity.HasIndex(e => e.RoomName, "UQ__Room__6B500B557606970E")
                 .IsUnique();
 
             entity.Property(e => e.RoomName)

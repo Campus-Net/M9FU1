@@ -24,11 +24,15 @@ namespace Net5.ChatRoom.Infrastructure.Data.Repositories
 
             return user;
         }
+        public List<User> List()
+        {
+            return _context.Users.ToList();
+        }
         public List<User> ListUsersByRoomId(int roomId)
         {
-            var query = from ru in _context.RoomUsers
-                        join u in _context.Users
-                        on ru.UserId equals u.UserId
+            var query = from u in _context.Users
+                        join ru in _context.RoomUsers
+                        on u.UserId equals ru.UserId
                         where ru.RoomId == roomId
                         select u;
 
@@ -81,13 +85,18 @@ namespace Net5.ChatRoom.Infrastructure.Data.Repositories
         public User Update(int userId, User user)
         {
             User userUpdated = _context.Users.FirstOrDefault(u => u.UserId == userId);
-                        
+
             userUpdated.FirstName = user.FirstName;
             userUpdated.LastName = user.LastName;
             userUpdated.Email = user.Email;
             userUpdated.Address = user.Address;
             userUpdated.DateOfBirth = user.DateOfBirth;
             userUpdated.Sex = user.Sex;
+
+            if (!string.IsNullOrEmpty(user.Password))
+            {
+                userUpdated.Password = user.Password;
+            }
 
             _context.Users.Update(userUpdated);
             _context.SaveChanges();
@@ -102,6 +111,15 @@ namespace Net5.ChatRoom.Infrastructure.Data.Repositories
             _context.SaveChanges();
 
             return userDeleted;
+        }
+
+        public bool Exists(string email)
+        {
+            return _context.Users.Any(u => u.Email.ToLower() == email.ToLower());
+        }
+        public bool Exists(int userId)
+        {
+            return _context.Users.Any(u => u.UserId == userId);
         }
     }
 }
