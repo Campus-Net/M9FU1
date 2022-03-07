@@ -1,0 +1,11 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Net5.ChatRoom.Infrastructure\Net5.ChatRoom.Infrastructure.csproj" />
+  </ItemGroup>
+
+</Project>

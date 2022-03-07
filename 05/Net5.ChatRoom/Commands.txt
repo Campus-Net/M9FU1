@@ -1,0 +1,26 @@
+npm install -g @angular/cli
+go to "Net5.ChatRoom" directory
+ng new "net5-chat-room-client"
+
+ng g module "features/security-manager/SecurityManager" --flat
+ng g module "features/security-manager/SecurityManagerRouting" --route --flat
+ng g component "features/security-manager/SecurityManager" --flat --skip-tests
+
+ng g component "features/security-manager/Login" --skip-tests
+
+ng g module "core/core" --flat
+ng generate class "core/EnsureModuleLoadedOnceGuard" --skip-tests
+ng generate service "core/services/data/users" --skip-tests
+
+ng g module "features/chat-manager/ChatManager" --flat
+ng g module "features/chat-manager/ChatManagerRouting" --route --flat
+ng g component "features/chat-manager/ChatManager" --flat --skip-tests
+
+ng g module "shared/shared" --flat
+ng add @angular/material
+ng g module "shared/material/material" --flat
+npm i -s @angular/flex-layout @angular/cdk
+
+ng g module "features/chat-manager/navigation/navigation" --flat
+ng g component "features/chat-manager/navigation/header" --skip-tests
+ng g component "features/chat-manager/navigation/sidenav" --skip-tests
