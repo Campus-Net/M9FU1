@@ -1,0 +1,35 @@
+<header>
+    <mat-toolbar color="primary">
+      <div *ngIf="!fixedInViewport">
+        <button mat-icon-button (click)="onToggleSidenav()">
+          <mat-icon>menu</mat-icon>
+        </button>
+      </div>
+      <div>
+        <a mat-icon-button routerLink="/chat"><mat-icon>forum</mat-icon></a>
+      </div>
+      <div>
+        <a routerLink="/chat">SUPER CHAT</a>
+      </div>
+      <span class="spacer"></span>
+      <div [matMenuTriggerFor]="accountMenu" class="userName">
+        {{email.toUpperCase()}}        
+      </div>
+      <div>
+        <button mat-icon-button [matMenuTriggerFor]="accountMenu">
+          <mat-icon>account_circle</mat-icon>
+        </button>
+        <mat-menu #accountMenu="matMenu">
+          <button mat-menu-item>
+            <mat-icon>face</mat-icon>
+            <span>{{firstName.toUpperCase()}} {{lastName.toUpperCase()}}</span>
+          </button>
+          <mat-divider></mat-divider>
+          <button mat-menu-item>
+            <mat-icon>logout</mat-icon>
+            <span>Logout</span>
+          </button>
+        </mat-menu>
+      </div>
+    </mat-toolbar>
+  </header>
