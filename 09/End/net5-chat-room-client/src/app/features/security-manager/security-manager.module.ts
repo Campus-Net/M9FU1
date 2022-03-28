@@ -1,14 +1,14 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ChatManagerRoutingModule } from './chat-manager-routing.module';
+import { SecurityManagerRoutingModule } from './security-manager-routing.module';
 import { SharedModule } from 'src/app/shared/shared.module';
 
 @NgModule({
-  declarations: [ChatManagerRoutingModule.components],
+  declarations: [SecurityManagerRoutingModule.components],
   imports: [
     CommonModule,
-    ChatManagerRoutingModule,
+    SecurityManagerRoutingModule,
     SharedModule
   ]
 })
-export class ChatManagerModule { }
+export class SecurityManagerModule { }

@@ -1,0 +1,42 @@
+<div fxLayout="row" fxLayoutAlign="space-between center" fxLayoutGap="12px">
+  <div class="example-loading-shade" *ngIf="isLoadingResults">
+    <mat-spinner *ngIf="isLoadingResults"></mat-spinner>
+  </div>
+  <mat-card class="full-width">
+    <mat-card-header>
+      <mat-card-title><h3><span class="glyphicon glyphicon-lock"></span>Room List</h3></mat-card-title>
+    </mat-card-header>
+  
+    <mat-card-content class="container">
+      <div class="button-row">
+        <button mat-flat-button color="primary" [routerLink]="['/chat/rooms/new']">Add Room</button>
+      </div>
+      <br>
+      
+      <div class="mat-elevation-z0">
+        <table mat-table 
+          [dataSource]="rooms" 
+          class="full-width"
+          matSort matSortActive="RoomName" 
+          matSortDisableClear matSortDirection="asc">
+    
+          <!-- Room Id Column -->
+          <ng-container matColumnDef="roomId">
+            <th mat-header-cell *matHeaderCellDef>Room Id</th>
+            <td mat-cell *matCellDef="let row">{{row.roomId}}</td>
+          </ng-container>
+
+          <!-- Room Name Column -->
+          <ng-container matColumnDef="roomName">
+            <th mat-header-cell *matHeaderCellDef>Room Name</th>
+            <td mat-cell *matCellDef="let row">{{row.roomName}}</td>
+          </ng-container>
+    
+          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns;" (click)="enterChatRoom(row.RoomId)"></tr>
+        </table>
+      </div>
+    </mat-card-content>
+      
+  </mat-card>  
+</div>

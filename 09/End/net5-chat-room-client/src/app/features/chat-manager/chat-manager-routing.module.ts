@@ -10,7 +10,8 @@ const chat_routes: Routes = [
   {
     path: '',component: ChatManagerComponent,
     children: [
-      { path: 'profile', component: ProfileComponent }
+      { path: 'profile', component: ProfileComponent },
+      { path: 'rooms', loadChildren: () => import('./rooms/rooms.module').then(m => m.RoomsModule) }
     ]
   }
 ]
