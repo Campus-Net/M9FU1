@@ -1,0 +1,50 @@
+<div class="sign-up-wrapper" fxLayout="row" fxLayoutAlign="center center">
+    <mat-card class="full-width container box">
+        <mat-card-header>
+          <mat-card-title><h3><span class="glyphicon glyphicon-lock"></span>SignUp</h3></mat-card-title>
+        </mat-card-header>
+          <mat-card-content class="container">
+            <form [formGroup]="signUpForm" (ngSubmit)="submit()" novalidate>
+              <mat-card-content class="container">
+                <mat-form-field class="full-width">
+                  <input matInput placeholder="User Id" formControlName="userId" id="userId" [ngModel]="user.userId" name="userId"/>
+                </mat-form-field>
+                <mat-form-field class="full-width">
+                  <input matInput placeholder="E-Mail" formControlName="email" [(ngModel)]="user.email" name="email"/>
+                </mat-form-field>  
+                <mat-form-field class="full-width">
+                  <input matInput type="password" placeholder="Enter your Password" formControlName="password" [(ngModel)]="user.password" name="password"/>
+                </mat-form-field>          
+                <mat-form-field class="full-width">
+                  <input matInput placeholder="Enter your First Name" formControlName="firstName" [(ngModel)]="user.firstName" name="firstName"/>
+                </mat-form-field>
+                <mat-form-field class="full-width">
+                  <input matInput placeholder="Enter your Last Name" formControlName="lastName" [(ngModel)]="user.lastName" name="lastName"/>
+                </mat-form-field>
+                <mat-form-field class="full-width">
+                  <input matInput placeholder="Enter your Address" formControlName="address" [(ngModel)]="user.address" name="address"/>
+                </mat-form-field>
+                <mat-form-field class="full-width">
+                  <mat-label>Choose a date</mat-label>
+                  <input matInput [matDatepicker]="picker" formControlName="dateOfBirth" [(ngModel)]="user.dateOfBirth" name="dateOfBirth">
+                  <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                  <mat-datepicker #picker></mat-datepicker>
+                </mat-form-field>
+                <mat-form-field class="full-width">
+                  <mat-label>Choose an option</mat-label>
+                  <mat-select formControlName="sex" [(ngModel)]="user.sex" name="sex">
+                    <mat-option *ngFor="let sex of sexes" 
+                    [value]="sex.value">
+                      {{sex.viewValue}}
+                    </mat-option>
+                  </mat-select>
+                </mat-form-field>
+                <div fxLayout="row" fxLayoutAlign="end none">
+                  <button mat-raised-button color="primary">Save</button>
+                </div>
+              </mat-card-content>
+            </form>
+          </mat-card-content>    
+      </mat-card>
+</div>
+  
