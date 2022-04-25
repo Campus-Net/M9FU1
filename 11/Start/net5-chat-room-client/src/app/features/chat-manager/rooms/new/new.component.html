@@ -1,0 +1,29 @@
+<div fxLayout="row" fxLayoutAlign="space-between center" fxLayoutGap="12px">
+    <mat-card class="full-width">
+      <mat-card-header>
+        <mat-card-title><h3><span class="glyphicon glyphicon-lock"></span>Room</h3></mat-card-title>
+      </mat-card-header>
+  
+      <form class="example-form" [formGroup]="roomForm" (ngSubmit)="onFormSubmit(roomForm.value)">
+        <mat-card-content class="container">
+            <h2>Please enter new Room</h2>
+            <mat-form-field class="full-width">
+            <mat-label>Room Name</mat-label>
+            <input matInput placeholder="Enter room name" formControlName="roomName" [errorStateMatcher]="matcher">
+            <mat-error>
+                <span *ngIf="!roomForm.get('roomName')!.valid && roomForm.get('roomName')!.touched">Enter room name</span>
+            </mat-error>
+            </mat-form-field>
+
+            <div fxLayout="row" fxLayoutAlign="end none" fxLayoutGap="12px">
+                <button type="submit" [disabled]="!roomForm.valid" mat-raised-button color="primary"><mat-icon>save</mat-icon> Save</button>
+                <button type="button" mat-raised-button color="warn" (click)="onClickBtnCancel($event)"><mat-icon>cancel</mat-icon> Cancel</button>
+            </div>            
+        </mat-card-content>
+      </form>
+      
+    </mat-card>  
+</div>
+  
+
+  
