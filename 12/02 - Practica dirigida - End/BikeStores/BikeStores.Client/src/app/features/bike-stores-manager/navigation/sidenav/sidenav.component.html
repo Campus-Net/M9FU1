@@ -1,0 +1,13 @@
+<div class="list-items">
+  <mat-nav-list>
+    <mat-list-item [routerLinkActive]="['is-active']" routerLink="/bike-stores/brands/list" (click)="onSidenavClose()">
+      <mat-icon>cases</mat-icon><span class="nav-caption">Brands</span>
+    </mat-list-item>
+    <mat-list-item [routerLinkActive]="['is-active']" routerLink="/bike-stores/categories/list" (click)="onSidenavClose()">
+      <mat-icon>category</mat-icon><span class="nav-caption">Categories</span>
+    </mat-list-item>
+    <mat-list-item [routerLinkActive]="['is-active']" routerLink="/bike-stores/products/list" (click)="onSidenavClose()">
+      <mat-icon>inventory</mat-icon><span class="nav-caption">Products</span>
+    </mat-list-item>
+  </mat-nav-list>
+</div>

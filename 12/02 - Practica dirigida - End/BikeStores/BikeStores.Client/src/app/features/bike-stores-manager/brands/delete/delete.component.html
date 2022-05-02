@@ -1,0 +1,30 @@
+<div fxLayout="row" fxLayoutAlign="space-between center" fxLayoutGap="12px">
+  <mat-card class="full-width">
+    <mat-card-header>
+      <mat-card-title><h3><span class="glyphicon glyphicon-lock"></span>Brand</h3></mat-card-title>
+    </mat-card-header>
+
+    <form class="form" [formGroup]="brandForm" (ngSubmit)="onFormSubmit(brandForm.value)">
+      <mat-card-content class="container">
+        <h2>¿Delete Brand?</h2>
+        <mat-form-field class="full-width">
+          <mat-label>Brand Id</mat-label>
+          <input type="number" matInput formControlName="brandId" id="brandId" name="brandId" [(ngModel)]="brand.brandId" />
+        </mat-form-field>
+        <mat-form-field class="full-width">
+          <mat-label>Brand Name</mat-label>
+          <input matInput placeholder="Enter brand name" formControlName="brandName" id="brandName" name="brandName" [(ngModel)]="brand.brandName" [errorStateMatcher]="matcher">
+          <mat-error>
+            <span *ngIf="!brandForm.get('brandName')!.valid && brandForm.get('brandName')!.touched">Enter brand name</span>
+          </mat-error>
+        </mat-form-field>
+
+        <div fxLayout="row" fxLayoutAlign="end none" fxLayoutGap="12px">
+          <button type="submit" mat-raised-button color="primary"><mat-icon>delete</mat-icon> Delete</button>
+          <button type="button" mat-raised-button color="warn" (click)="onClickBtnCancel($event)"><mat-icon>cancel</mat-icon> Cancel</button>
+        </div>
+      </mat-card-content>
+    </form>
+
+  </mat-card>
+</div>
