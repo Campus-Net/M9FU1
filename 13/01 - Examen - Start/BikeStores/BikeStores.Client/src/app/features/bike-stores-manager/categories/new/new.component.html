@@ -1,0 +1,26 @@
+<div fxLayout="row" fxLayoutAlign="space-between center" fxLayoutGap="12px">
+  <mat-card class="full-width">
+    <mat-card-header>
+      <mat-card-title><h3><span class="glyphicon glyphicon-lock"></span>Category</h3></mat-card-title>
+    </mat-card-header>
+
+    <form class="form" [formGroup]="categoryForm" (ngSubmit)="onFormSubmit(categoryForm.value)">
+      <mat-card-content class="container">
+        <h2>Please enter new Category</h2>
+        <mat-form-field class="full-width">
+          <mat-label>Category Name</mat-label>
+          <input matInput placeholder="Enter category name" formControlName="categoryName" [errorStateMatcher]="matcher">
+          <mat-error>
+            <span *ngIf="!categoryForm.get('categoryName')!.valid && categoryForm.get('categoryName')!.touched">Enter category name</span>
+          </mat-error>
+        </mat-form-field>
+
+        <div fxLayout="row" fxLayoutAlign="end none" fxLayoutGap="12px">
+          <button type="submit" [disabled]="!categoryForm.valid" mat-raised-button color="primary"><mat-icon>save</mat-icon> Save</button>
+          <button type="button" mat-raised-button color="warn" (click)="onClickBtnCancel($event)"><mat-icon>cancel</mat-icon> Cancel</button>
+        </div>
+      </mat-card-content>
+    </form>
+
+  </mat-card>
+</div>

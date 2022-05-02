@@ -1,0 +1,18 @@
+<header>
+  <mat-toolbar color="primary">
+    <div *ngIf="!fixedInViewport">
+      <button mat-icon-button (click)="onToggleSidenav()">
+        <mat-icon>menu</mat-icon>
+      </button>
+    </div>
+    <div>
+      <a mat-icon-button routerLink="/bike-stores"><mat-icon>directions_bike</mat-icon></a>
+    </div>
+    <div>
+      <a routerLink="/bike-stores">BIKE STORES</a>
+    </div>
+    <span class="spacer"></span>
+    
+    
+  </mat-toolbar>
+</header>

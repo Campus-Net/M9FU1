@@ -1,0 +1,57 @@
+<div fxLayout="row" fxLayoutAlign="space-between center" fxLayoutGap="12px">
+  <div class="example-loading-shade" *ngIf="isLoadingResults">
+    <mat-spinner *ngIf="isLoadingResults"></mat-spinner>
+  </div>
+  <mat-card class="full-width">
+    <mat-card-header>
+      <mat-card-title><h3><span class="glyphicon glyphicon-lock"></span>Categories List</h3></mat-card-title>
+    </mat-card-header>
+
+    <mat-card-content class="container">
+      <div class="button-row">
+        <button mat-flat-button color="primary" [routerLink]="['/bike-stores/categories/new']">Add Category</button>
+      </div>
+      <br>
+
+      <div class="mat-elevation-z0">
+        <table mat-table
+               [dataSource]="categories"
+               class="full-width"
+               matSort matSortActive="categoryId"
+               matSortDisableClear matSortDirection="asc">
+
+          <!-- Category Id Column -->
+          <ng-container matColumnDef="categoryId">
+            <th mat-header-cell *matHeaderCellDef>Category Id</th>
+            <td mat-cell *matCellDef="let row">{{row.categoryId}}</td>
+          </ng-container>
+
+          <!-- Category Name Column -->
+          <ng-container matColumnDef="categoryName">
+            <th mat-header-cell *matHeaderCellDef>Category Name</th>
+            <td mat-cell *matCellDef="let row">{{row.categoryName}}</td>
+          </ng-container>
+
+          <!-- Actions Column -->
+          <ng-container matColumnDef="actions">
+            <th class="cell" mat-header-cell *matHeaderCellDef> Actions </th>
+            <td class="cell" mat-cell *matCellDef="let row">
+              <div class="actions">
+                <a mat-icon-button matTooltip="Edit Category" [routerLink]="['/bike-stores/categories/',row.categoryId,'edit']">
+                  <mat-icon>edit</mat-icon>
+                </a>
+                <a mat-icon-button matTooltip="Delete Category" [routerLink]="['/bike-stores/categories/',row.categoryId,'delete']">
+                  <mat-icon>delete</mat-icon>
+                </a>
+              </div>
+            </td>
+          </ng-container>
+
+          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+      </div>
+    </mat-card-content>
+
+  </mat-card>
+</div>
