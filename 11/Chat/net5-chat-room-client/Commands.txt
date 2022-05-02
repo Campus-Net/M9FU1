@@ -48,3 +48,9 @@ npm install @microsoft/signalr
 
 ng g component "features/chat-manager/rooms/edit" --skip-tests
 ng generate class "shared/models/RoomForUpdate" --skip-tests
+
+ng g component "features/chat-manager/rooms/chat-room" --skip-tests
+ng generate class "shared/models/RoomUser" --skip-tests
+ng generate class "shared/models/Chat" --skip-tests
+ng generate service "core/services/data/RoomUsers" --skip-tests
+ng generate service "core/services/data/Chats" --skip-tests

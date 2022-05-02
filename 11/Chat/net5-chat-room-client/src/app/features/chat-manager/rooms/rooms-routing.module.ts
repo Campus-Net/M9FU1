@@ -5,6 +5,7 @@ import { RoomsComponent } from './rooms.component';
 import { ListComponent } from './list/list.component';
 import { NewComponent } from './new/new.component';
 import { EditComponent } from './edit/edit.component';
+import { ChatRoomComponent } from './chat-room/chat-room.component';
 
 const rooms_routes: Routes = [
   {
@@ -12,7 +13,8 @@ const rooms_routes: Routes = [
     children: [
       { path: 'list', component: ListComponent },
       { path: 'new', component: NewComponent },
-      { path: ':roomId/edit', component: EditComponent }
+      { path: ':roomId/edit', component: EditComponent },
+      { path: ':roomId/chats', component: ChatRoomComponent }
     ]
   }
 ]
@@ -27,6 +29,7 @@ export class RoomsRoutingModule {
     RoomsComponent,
     ListComponent,
     NewComponent,
-    EditComponent
+    EditComponent,
+    ChatRoomComponent
   ]
 }

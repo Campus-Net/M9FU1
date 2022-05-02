@@ -1,7 +1,7 @@
 import { AppUserAuth } from "./app-user-auth";
 
 export class User {
-    constructor(user?:AppUserAuth){
+    constructor(user?:any){
         if(!user){
             this.userId = 0;
             this.firstName = "";
@@ -31,4 +31,8 @@ export class User {
     public address: string;
     public sex: number;
     public dateOfBirth?: Date;    
+
+    public getFullName(){
+        return `${this.firstName} ${this.lastName}`;
+    }
 }

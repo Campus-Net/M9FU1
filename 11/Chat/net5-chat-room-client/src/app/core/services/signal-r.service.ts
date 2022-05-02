@@ -1,5 +1,6 @@
 import { EventEmitter, Injectable } from '@angular/core';
 import * as signalR from "@microsoft/signalr";
+import { Chat } from 'src/app/shared/models/chat';
 
 @Injectable({
   providedIn: 'root'
@@ -7,6 +8,7 @@ import * as signalR from "@microsoft/signalr";
 export class SignalRService {
 
   onListRooms = new EventEmitter();  
+  onReciveChat = new EventEmitter<Chat>();  
   onListUsersByRoomId = new EventEmitter<number>();
 
   connectionEstablished = new EventEmitter<boolean>();
@@ -40,11 +42,19 @@ export class SignalRService {
       });
   }
 
-  private registerClientEventsOnServer(): void {
-    
+  private registerClientEventsOnServer(): void {    
     this._hubConnection.on('ListRoomsClient', () => {
       this.onListRooms.emit();
     });
-    
+    this._hubConnection.on('ReciveChatClient', (chat: Chat) => {
+      this.onReciveChat.emit(chat);
+    });
+    this._hubConnection.on('ListUsersByRoomIdClient', (roomId: number) => {
+      this.onListUsersByRoomId.emit(roomId);
+    });
+  }
+
+  public SendChat(chat: Chat) {
+    return this._hubConnection.send("SendChatServer", chat);
   }
 }

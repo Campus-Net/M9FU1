@@ -50,7 +50,7 @@ export class SignUpComponent implements OnInit {
   }
 
   ngOnInit(): void {    
-    this.user = this.authService.appUserAuth;
+    this.user = this.authService.getUserLoggedIn();
     this.buildForm(this.user);
   }
 

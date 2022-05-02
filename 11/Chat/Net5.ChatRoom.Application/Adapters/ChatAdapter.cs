@@ -94,14 +94,21 @@ namespace Net5.ChatRoom.Application.Adapters
 
         public static RoomUserDto RoomUserToRoomUserDto(RoomUser roomUser)
         {
-            RoomUserDto roomUserDto = new RoomUserDto
+            if (roomUser != null)
             {
-                RoomId = roomUser.RoomId,
-                UserId = roomUser.UserId,
-                Status = roomUser.Status
-            };
+                RoomUserDto roomUserDto = new RoomUserDto
+                {
+                    RoomId = roomUser.RoomId,
+                    UserId = roomUser.UserId,
+                    Status = roomUser.Status
+                };
 
-            return roomUserDto;
+                return roomUserDto;
+            }
+            else
+            {
+                return null;
+            }
         }
         public static RoomUser RoomUserDtoToRoomUser(RoomUserDto roomUserDto)
         {

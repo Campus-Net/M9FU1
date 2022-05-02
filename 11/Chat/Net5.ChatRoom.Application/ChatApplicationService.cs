@@ -155,6 +155,12 @@ namespace Net5.ChatRoom.Application
             RoomUserDto roomUser = ChatAdapter.RoomUserToRoomUserDto(roomUserFromRepository);
             return roomUser;
         }
+        public RoomUserDto GetRoomUserByRoomIdAndUserIdAndStatus(int roomId, int userId,string status)
+        {
+            RoomUser roomUserFromRepository = _roomUserRepository.GetByRoomIdAndUserIdAndStatus(roomId, userId,status);
+            RoomUserDto roomUser = ChatAdapter.RoomUserToRoomUserDto(roomUserFromRepository);
+            return roomUser;
+        }
         public RoomUserDto InsertRoomUser(RoomUserDto roomUserDto)
         {
             RoomUser roomUser = ChatAdapter.RoomUserDtoToRoomUser(roomUserDto);

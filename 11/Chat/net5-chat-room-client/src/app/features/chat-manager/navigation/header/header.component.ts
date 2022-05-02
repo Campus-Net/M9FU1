@@ -48,8 +48,9 @@ export class HeaderComponent implements OnInit {
   }
 
   private updateData(){
-    this.email = this.authService.appUserAuth.email;
-    this.firstName = this.authService.appUserAuth.firstName;
-    this.lastName = this.authService.appUserAuth.lastName;
+    let appUserAuth = this.authService.getUserLoggedIn();
+    this.email = appUserAuth.email;
+    this.firstName = appUserAuth.firstName;
+    this.lastName = appUserAuth.lastName;
   }
 }

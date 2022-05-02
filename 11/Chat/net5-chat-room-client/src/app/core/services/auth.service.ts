@@ -16,7 +16,7 @@ export class AuthService {
 
   isAuthenticated = false;
   redirectUrl = '';
-  appUserAuth = new AppUserAuth();
+  private appUserAuth = new AppUserAuth();
 
   constructor(
     private http: HttpClient    
@@ -67,10 +67,10 @@ export class AuthService {
     this.userAuthChanged(appUserAuth);
   }
 
-  private getUserLoggedIn(): AppUserAuth {
+  public getUserLoggedIn(): AppUserAuth {
     let appUserAuth = JSON.parse(sessionStorage.getItem('currentUser')!);
     appUserAuth = appUserAuth || new AppUserAuth();
-    return appUserAuth;
+    return new AppUserAuth(appUserAuth);
   }
 
   private userAuthChanged(appUserAuth: AppUserAuth) {

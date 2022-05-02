@@ -1,8 +1,8 @@
 import { User } from "./user";
 
 export class AppUserAuth {
-    constructor(user?:User){
-        if(!user){
+    constructor(user?:any){
+        if(!user){            
             this.userId = 0;
             this.firstName = "";
             this.lastName = "";
@@ -13,7 +13,7 @@ export class AppUserAuth {
             this.dateOfBirth = undefined;
             this.bearerToken = "";
             this.isAuthenticated = false;
-        }else{
+        }else{            
             this.userId = user.userId;
             this.firstName = user.firstName;
             this.lastName = user.lastName;
@@ -22,8 +22,13 @@ export class AppUserAuth {
             this.address = user.address;
             this.sex = user.sex;
             this.dateOfBirth = user.dateOfBirth;
-            this.bearerToken = "";
-            this.isAuthenticated = false;
+            if(user instanceof AppUserAuth){
+                this.bearerToken = user.bearerToken;
+                this.isAuthenticated = user.isAuthenticated;
+            }else{
+                this.bearerToken = "";
+                this.isAuthenticated = false;
+            }
         }
     }
 
@@ -37,4 +42,8 @@ export class AppUserAuth {
     public dateOfBirth?: Date;
     public bearerToken: string;
     public isAuthenticated: boolean;
+
+    public getFullName(){
+        return `${this.firstName} ${this.lastName}`;
+    }
 }

@@ -11,6 +11,16 @@ namespace Net5.ChatRoom.Infrastructure.Data.Repositories
         {
             _context = context;
         }
+        public RoomUser GetByRoomIdAndUserIdAndStatus(int roomId, int userId,string status)
+        {
+            var query = from ru in _context.RoomUsers
+                        where ru.RoomId == roomId && ru.UserId == userId && ru.Status == status
+                        select ru;
+
+            RoomUser roomUser = query.FirstOrDefault();
+
+            return roomUser;
+        }
         public RoomUser GetByRoomIdAndUserId(int roomId, int userId)
         {
             var query = from ru in _context.RoomUsers

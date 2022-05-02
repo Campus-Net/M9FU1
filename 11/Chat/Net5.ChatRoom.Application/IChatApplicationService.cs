@@ -27,5 +27,6 @@ namespace Net5.ChatRoom.Application
         bool UserExists(int userId);
         List<UserDto> ListUsers();        
         UserDto ValidateLogin(UserDto user);
+        RoomUserDto GetRoomUserByRoomIdAndUserIdAndStatus(int roomId, int userId, string status);
     }
 }
